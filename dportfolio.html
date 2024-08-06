@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/profile/dprofile-style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+</head>
+<style>
+     .menu-container{
+            position:fixed;
+            bottom:0.5rem;
+            right:-3rem;
+        }
+
+        .btn__menu{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+        .btn__menu li{
+            position: absolute;
+            list-style: none;
+        }
+        .toggle{
+            font-size: 2em;
+            position:absolute;
+            width: 60px;
+            height: 60px;
+            background-color: rgb(192, 225, 248);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 5px 5px 0px 0px rgb(95, 114, 219);
+            transition: transform 1.25s;
+        }
+
+        .toggle i {
+            font-size: 1em;
+        }
+
+        .btn__menu.active .toggle{
+            transform: rotate(315deg);
+        }
+
+        .btn__menu li{
+            position: absolute;
+            left:0;
+            list-style: none;
+            transition: 0.5s;
+            transform-origin: 100px;
+            transition-delay: calc(0.1s * var(--i));
+            transform: rotate(0deg) translateX(80px);
+        }
+
+        .btn__menu li a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: #88c0ff;;
+            color:black;
+            border-radius: 50%;
+            transform: rotate(calc(-80deg + 35deg * var(--i)));
+            position: relative;
+        }
+
+        .btn__menu.active li {
+            transform: rotate(calc(80deg + -35deg * var(--i)));
+        }
+</style>
+
+<body>
+    <header class="header">
+        <a href="./main.html" class="logo">Aaron<span class="animate" style="--i:1;"></span></a>
+        <div class="bx bx-menu" id="menu-icon"><span class="animate" style="--1:2;"></span></div>
+        <nav class="navbar">
+            <a href="#home" class="active" >Home</a>
+            <a href="#about">About</a> 
+            <a href="#skills">Skills</a>
+            <span class="active-nav"></span>
+            <span class="animate" style="--i:3"></span>
+        </nav>
+    </header>
+        <section class="home show-animate" id="home">
+            <div class="home-content">
+                <h1>Hi, I'm <span>Aaron Lee</span><span class="animate" style="--i:2;"></span></h1>
+                <div class="text-animate">
+                    <h3>Software Developer</h3>
+                    <span class="animate" style="--i:3;"></span>
+                </div>
+                <p>
+                    Welcome to my portfolio! I'm Aaron, a passionate software developer driven by insatiable curiosity and a relentless desire to master new skills and technologies.   
+                    <span class="animate" style="--i:4;"></span>
+                </p>
+                <div class="btn-box">
+                    <a href="#" class="btn">Hire Me</a>
+                    <a href="#" class="btn">Let's Talk</a>
+                    <span class="animate" style="--i:5;"></span>
+                </div>
+            </div>
+    
+            <div class="home-sci">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+                <span class="animate" style="--i:6;"></span>
+            </div>
+    
+            <div class="home-imgHover"></div>
+            <span class="animate home-img" style="--i:7;"></span>
+        </section>
+        <section class="about" id="about">
+          <h2 class="heading">About <span>Me</span><span class="animate scroll" style="--i:1;"></span></h2>
+           <div class="about-content">
+                <div class="about-img">
+                    <img src="./images/bunny.png" alt="">
+                    <span class="circle-spin"></span>
+                    <span class="animate scroll" style="--i:2;"></span>
+                </div>
+                <p>
+                    As a passionate full-stack developer, I am driven by insatiable curiosity and a relentless desire to master new skills and technologies. I excel in crafting exceptional websites, networking, and engineering robust firewalls. Constantly seeking challenges, I thrive on innovation and launching cutting-edge projects. My commitment to continuous learning keeps me at the forefront of the industry. I am eager to bring my energy and expertise to a dynamic team, contributing to transformative projects and making a meaningful impact.
+                    <span class="animate scroll" style="--i:4;"></span>
+                </p>
+           </div>
+            <div class="education-row">
+                <div class="education-column">
+                    <h3 class="title">Education<span class="animate scroll" style="--i:2;"></span></h3>
+    
+                    <div class="education-box">
+                        <div class="education-content">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i> 2021 - 2024</div>
+                                <h3>BCIT - University</h3>
+                                <p>Studied Network Security B.Sc</p>
+                            </div>
+                        </div>
+    
+                        <div class="education-content">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i> 2019 - 2020</div>
+                                <h3>BCIT - University</h3>
+                                <p>Studied Web Development Diploma</p>
+                            </div>
+                        </div>
+    
+                        <div class="education-content">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i> 2013-2015</div>
+                                <h3>TWU - University</h3>
+                                <p>Studied Business Leadership</p>
+                            </div>
+                        </div>
+    
+                        <span class="animate scroll" style="--i:3;"></span>
+                    </div>
+                </div>
+                
+                <div class="education-column">
+                    <h3 class="title">Experience<span class="animate scroll" style="--i:5;"></span></h3>
+    
+                    <div class="education-box">
+                        <div class="education-content">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i> 2023- 2024</div>
+                                <h3>Fortinet - Company</h3>
+                                <p>Software QA Analyst</p>
+                            </div>
+                        </div>
+    
+                        <div class="education-content">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i>2023-2023</div>
+                                <h3>City Of Coquitlam</h3>
+                                <p>Community Support</p>
+                            </div>
+                        </div>
+    
+                        <div class="education-content">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i> 2018 - 2019</div>
+                                <h3>United Nation Interim Force in Lebanon</h3>
+                                <p>Peace Keeker(Signal Corps)</p>
+                            </div>
+                        </div>
+    
+                        <span class="animate scroll" style="--i:6;"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="skills" id="skills">
+            <h2 class="heading">My <span>Skills</span><span class="animate scroll" style="--i:1;"></span></h2>
+            <div class="skills-row">
+                <div class="skills-column">
+                    <h3 class="title">Coding Skills<span class="animate scroll" style="--i:2;"></span></h3>
+                    <div class="skills-box">
+                        <div class="skills-content">
+                            <div class="progress">
+                                <h3>HTML/CSS <span>90%</span></h3>
+                                <div class="bar"><span style="width:90%;"></span></div>
+                            </div>
+    
+                            <div class="progress">
+                                <h3>JavaScript <span>80%</span></h3>
+                                <div class="bar"><span style="width:80%;"></span></div>
+                            </div>
+    
+                            <div class="progress">
+                                <h3>C# <span>80%</span></h3>
+                                <div class="bar"><span style="width:65%;"></span></div>
+                            </div>
+    
+                            <div class="progress">
+                                <h3>Python <span>80%</span></h3>
+                                <div class="bar"><span style="width:75%;"></span></div>
+                            </div>
+                            <div class="progress">
+                                <h3>Java <span>85%</span></h3>
+                                <div class="bar"><span style="width:75%;"></span></div>
+                            </div>
+                            <div class="progress">
+                                <h3>C <span>85%</span></h3>
+                                <div class="bar"><span style="width:75%;"></span></div>
+                            </div>
+                            <div class="progress">
+                                <h3>C# <span>75%</span></h3>
+                                <div class="bar"><span></span></div>
+                            </div>
+                        </div>
+                        <span class="animate scroll" style="--i:3;"></span>
+                    </div>
+                </div>
+                <div class="skills-column">
+                    <h3 class="title">Professional Skills<span class="animate scroll" style="--i:5;"></span></h3>
+    
+                    <div class="skills-box">
+                        <div class="skills-content">
+                            <div class="progress">
+                                <h3>Web Design <span>95%</span></h3>
+                                <div class="bar"><span style="width:95%;"></span></div>
+                            </div>
+    
+                            <div class="progress">
+                                <h3>Web Development <span>67%</span></h3>
+                                <div class="bar"><span style="width:67%;"></span></div>
+                            </div>
+    
+                            <div class="progress">
+                                <h3>Graphic Design <span>85%</span></h3>
+                                <div class="bar"><span style="width:85%;"></span></div>
+                            </div>
+    
+                            <div class="progress">
+                                <h3>SEO Marketing <span>60%</span></h3>
+                                <div class="bar"><span style="width:60%;"></span></div>
+                            </div>
+                            <div class="progress">
+                                <h3>GIT <span>80%</span></h3>
+                                <div class="bar"><span style="width:60%;"></span></div>
+                            </div>
+                            <div class="progress">
+                                <h3>SQL <span>60%</span></h3>
+                                <div class="bar"><span style="width:60%;"></span></div>
+                            </div>
+                            <div class="progress">
+                                <h3>QA Aalyst <span>60%</span></h3>
+                                <div class="bar"><span style="width:60%;"></span></div>
+                            </div>
+                        </div>
+                        <span class="animate scroll" style="--i:6;"></span>
+                    </div>
+                </div>
+            </div>
+    
+        </section>
+        <div class="menu-container">
+            <div class="btn__menu">
+                <div class="toggle">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <li style="--i:2;">
+                    <a href="./main.html"><i class="fa-solid fa-house"></i></a>
+                </li>
+                <li style="--i:1;">
+                    <a href="./dprojects.html"><i class="fa-solid fa-address-book"></i></a>
+                </li>
+                <li style="--i:0;">
+                    <a href="#home"><i class="fa-solid fa-arrow-up"></i></a>
+                </li>
+              </div>
+          </div>
+    </body>
+    <script src="js/bprofile-script.js"></script>
+    <script>
+        let toggle = document.querySelector(".toggle");
+        let menu = document.querySelector(".btn__menu");
+
+        toggle.onclick = function() {
+            console.log("hello")
+            menu.classList.toggle('active');
+        };
+    </script>
+    </body>
+</html>

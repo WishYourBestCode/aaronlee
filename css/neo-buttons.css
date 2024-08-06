@@ -1,0 +1,80 @@
+.btn {
+    position: relative;
+    display: inline-block;
+    line-height: 20px;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    text-align: center;
+    width: 300px;
+    height: 50px;
+    font-weight: bold;
+    background-color: transparent;
+    border: 2px solid var(--clr);
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    transition: 0.5s;
+    color: var(--clr);
+    overflow: hidden;
+  }
+
+  .btn:hover {
+    background: var(--clr);
+    box-shadow: 0 0 25px var(--clr), 0 0 100px var(--clr),
+      0 0 150px var(--clr);
+      cursor: pointer;
+
+  }
+
+  .btn span {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.5s;
+    text-shadow: 0 35px #fff;
+    transform: translateY(0px);
+  }
+
+  .btn span.hover {
+    transform: translateY(-100%);
+  }
+
+  .btn:hover span.hover {
+    transform: translateY(-35px);
+  }
+
+  .btn span.hover {
+    transform: translateY(-35px);
+  }
+
+  .particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .particle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #4fc3dc;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4fc3dc, 0 0 20px #4fc3dc, 0 0 30px #4fc3dc;
+    animation: move 10s linear infinite;
+    transition: background 0.3s, box-shadow 0.3s, left 0.5s, top 0.5s;
+  }
+
+  .particle:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 10px #ff2d75, 0 0 20px #ff2d75, 0 0 30px #ff2d75;
+  }
+
+  @keyframes move {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    100% {
+      transform: translateY(calc(100vh + 20px)) translateX(0);
+    }
+  }

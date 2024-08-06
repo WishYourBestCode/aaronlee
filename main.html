@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Theme Switcher</title>
+  <link rel="stylesheet" href="css/body.css">
+  <link rel="stylesheet" href="css/toggle-style.css">
+  <link id="dynamic-css" rel="stylesheet" href="css/white-buttons.css">
+  <link id="dynamic-effects-css" rel="stylesheet" href="css/bunny.css">
+  <link rel="preload" href="css/neo-buttons.css" as="style">
+  <link rel="preload" href="css/particles.css" as="style">
+  <link rel="preload" href="css/bunny.css" as="style">
+  <link rel="preload" href="css/white-buttons.css" as="style">
+</head>
+<body>
+  <div class="buttons">
+    <div class="toggle__container">
+      <input type="checkbox" id="darkmode-toggle" class="toggle__input"/>
+      <label for="darkmode-toggle" class="toggle__label"></label>
+    </div>
+    <a href="./wprofile-original.html">
+      <button
+        class="btn"
+        id="about-aaron-btn"
+        style="--clr: #007bff"
+        data-color1="#007bff"
+        data-color2="#00ff7f"
+      >
+        About Aaron
+      </button>
+    </a>
+    <a href="./wprojects.html">
+      <button
+        class="btn"
+        id="my-projects-btn"
+        style="--clr: #ff0055"
+        data-color1="#ff0055"
+        data-color2="#ffff00"
+      >
+        My Projects
+      </button>
+    </a>
+    <a href="#">
+      <button
+        class="btn"
+        id="hire-me-btn"
+        style="--clr: #b731e5"
+        data-color1="#b731e5"
+        data-color2="#ff4500"
+        onclick="window.open('./assets/AaronLee.pdf')"
+      >
+        Resume
+      </button>
+    </a>
+  </div>
+  <div class="particles" id="particles"></div>
+  <div class="wrapper"></div>
+  <script src="js/buttons.js"></script>
+  <script src="js/bunny.js"></script>
+  <script>
+    function loadScript(url, callback) {
+      const script = document.createElement('script');
+      script.src = url;
+      script.onload = callback;
+      script.onerror = function() {
+        console.error(`Failed to load script ${url}`);
+      };
+      document.head.appendChild(script);
+    }
+
+
+    function loadScriptsSequentially(urls, callback) {
+      if (urls.length === 0) {
+        if (callback) callback();
+        return;
+      }
+      loadScript(urls[0], function() {
+        loadScriptsSequentially(urls.slice(1), callback);
+      });
+    }
+
+    function initializeTheme() {
+      console.log('Theme initialized');
+    }
+
+    document.getElementById('darkmode-toggle').addEventListener('change', function() {
+      const cssLink = document.getElementById('dynamic-css');
+      const effectLink = document.getElementById('dynamic-effects-css');
+      const portfolio_btn = document.getElementById('about-aaron-btn').closest('a');
+      const proeject_btn = document.getElementById('my-projects-btn').closest('a');
+      const hire_btn = document.getElementById('hire-me-btn').closest('a');
+
+      if (this.checked) {
+        console.log("checked");
+        cssLink.href = 'css/neo-buttons.css';
+        effectLink.href = 'css/particles.css';
+        document.body.classList.remove('white-mode');
+        document.body.classList.add('dark-mode');
+        loadScriptsSequentially(['js/neo-button-and-particles.js'], initializeTheme);
+        bunnyControl.cleanup(); 
+        portfolio_btn.setAttribute('href', './dportfolio.html');
+        proeject_btn.setAttribute('href', './dprojects.html');
+       
+    
+      } else {
+        console.log("not checked");
+        cssLink.href = 'css/white-buttons.css';
+        effectLink.href = 'css/bunny.css';
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('white-mode');
+        loadScriptsSequentially(['js/white-buttons.js'], function() {
+          initializeTheme();
+          bunnyControl.reInit(); 
+        });
+      }
+    });
+
+    document.getElementById('about-aaron-btn').addEventListener('click', function() {
+      loadScriptsSequentially(['js/about-aaron.js'], initializeTheme);
+    });
+
+    document.getElementById('my-projects-btn').addEventListener('click', function() {
+      loadScriptsSequentially(['js/my-projects.js'], initializeTheme);
+    });
+
+    document.getElementById('hire-me-btn').addEventListener('click', function() {
+      loadScriptsSequentially(['js/hire-me.js'], initializeTheme);
+    });
+
+    loadScriptsSequentially(['js/white-buttons.js'], function() {
+      console.log('Initial scripts loaded');
+      bunnyControl.reInit()
+      initializeTheme();
+    });
+
+
+  </script>
+
+</body>
+</html>
+<!-- document.getElementById('darkmode-toggle').addEventListener('change', function() {
+  const cssLink = document.getElementById('dynamic-css');
+  const effectLink = document.getElementById('dynamic-effects-css');
+  const portfolio_btn = document.getElementById('about-aaron-btn').closest('a');;
+  const proeject_btn = document.getElementById('my-projects-btn').closest('a');;
+  const hire_btn = document.getElementById('hire-me-btn').closest('a');;
+
+  if (this.checked) {
+    console.log("checked");
+    cssLink.href = 'css/neo-buttons.css';
+    effectLink.href = 'css/particles.css';
+    document.body.classList.remove('white-mode');
+    document.body.classList.add('dark-mode');
+    portfolio_btn.setAttribute('href', './dportfolio.html');
+    project_btn.setAttribute('href', './dprojects.html');
+
+    loadScriptsSequentially(['js/neo-button-and-particles.js'], initializeTheme);
+    bunnyControl.cleanup(); 
+  } else {
+    console.log("not checked");
+    cssLink.href = 'css/white-buttons.css';
+    effectLink.href = 'css/bunny.css';
+    document.body.classList.remove('dark-mode');
+    document.body.classList.add('white-mode');
+
+
+    loadScriptsSequentially(['js/white-buttons.js'], function() {
+      initializeTheme();
+      bunnyControl.reInit(); 
+    });
+  }
+}); -->

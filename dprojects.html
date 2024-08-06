@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <link rel="stylesheet" href="./css/space copy.css">
+
+</head>
+<style>
+   .menu-container{
+        position:fixed;
+        bottom:0.5rem;
+        right:-3rem;
+        z-index: 1000;
+    }
+
+    .btn__menu{
+        position: relative;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        z-index: 1000;
+    }
+    .btn__menu li{
+        position: absolute;
+        list-style: none;
+    }
+    .toggle{
+        font-size: 2em;
+        position:absolute;
+        width: 60px;
+        height: 60px;
+        background-color: rgb(32, 146, 228);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 5px 5px 0px 0px rgb(95, 114, 219);
+        transition: transform 1.25s;
+    }
+
+    .toggle i {
+        font-size: 1em;
+    }
+
+    .btn__menu.active .toggle{
+        transform: rotate(315deg);
+    }
+
+    .btn__menu li{
+        position: absolute;
+        left:0;
+        list-style: none;
+        transition: 0.5s;
+        transform-origin: 100px;
+        transition-delay: calc(0.1s * var(--i));
+        transform: rotate(0deg) translateX(80px);
+    }
+
+    .btn__menu li a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background: #88c0ff;;
+        color:black;
+        border-radius: 50%;
+        transform: rotate(calc(-80deg + 35deg * var(--i)));
+        position: relative;
+    }
+
+    .btn__menu.active li {
+        transform: rotate(calc(80deg + -35deg * var(--i)));
+    }
+</style>
+
+
+<body class="opening hide-UI data-close" >  
+      <div id="navbar">
+        <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
+      </div>
+      <div id="data">
+        <a class="sun"  title="sun" href="#sunspeed">Sun</a>
+        <a class="icecube1" title="icecube1" href="#icecube1speed">Project1</a>
+        <a class="icecube2" title="icecube2" href="#icecube2speed">Project2</a>
+        <a class="icecube3 active" title="icecube3  " href="#icecube3speed">Project3</a>
+        <a class="icecube4" title="icecube4" href="#icecube4speed">Project4</a>
+      </div>
+
+      <div id="universe" class="scale-stretched">
+        <div id="galaxy">
+          <div id="solar-system" class="earth">
+            <div id="icecube1" class="orbit">
+              <div class="pos">
+                  <div class="ice-cube"
+                  data-color0="#4FBED7"  
+                  data-color1="#2364EE"
+                  data-color2="#59D2FE"
+                  data-color3="#7700FF">
+                    <div class="front"></div>
+                    <div class="back"></div>
+                    <div class="right"></div>
+                    <div class="left"></div>
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                  </div>
+                <dl class="infos">
+                  <dt>Project1</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+  
+            <div id="icecube2" class="orbit">
+              <div class="pos">
+                <div class="ice-cube"
+                data-color0="#4FBED7"  
+                data-color1="#2364EE"
+                data-color2="#59D2FE"
+                data-color3="#00ec00">
+                  <div class="front"></div>
+                  <div class="back"></div>
+                  <div class="right"></div>
+                  <div class="left"></div>
+                  <div class="top"></div>
+                  <div class="bottom"></div>
+                </div>
+                <dl class="infos">
+                  <dt>Project2</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+            <div id="icecube3" class="orbit">
+              <div class="pos">
+                <div class="ice-cube"
+                data-color0="#4FBED7"  
+                data-color1="#2364EE" 
+                data-color2="#59D2FE"
+                data-color3="#f00">
+                  <div class="front"></div>
+                  <div class="back"></div>
+                  <div class="right"></div>
+                  <div class="left"></div>
+                  <div class="top"></div>
+                  <div class="bottom"></div>
+                </div>
+                <dl class="infos">
+                  <dt>Project3</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+            <div id="icecube4" class="orbit">
+              <div class="pos">
+                <div class="ice-cube"
+                data-color0="#4FBED7"  
+                data-color1="#2364EE"
+                data-color2="#59D2FE"
+                data-color3="#108ff8">
+                  <div class="front"></div>
+                  <div class="back"></div>
+                  <div class="right"></div>
+                  <div class="left"></div>
+                  <div class="top"></div>
+                  <div class="bottom"></div>
+                </div>
+                <dl class="infos">
+                  <dt>Project4</dt>
+                  <dd><span></span></dd>
+                </dl>
+              </div>
+            </div>
+            <div id="sun"  
+            data-color0="#cf4421"
+            data-color1="#4FBED7"   
+            data-color3="#FFD700" >
+              <dl class="infos">
+                <dt>Sun</dt>
+                <dd><span></span></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-container">
+        <div class="btn__menu">
+            <div class="toggle">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <li style="--i:2;">
+                <a href="./main.html"><i class="fa-solid fa-house"></i></a>
+            </li>
+            <li style="--i:1;">
+                <a href="./wportfolio.html"><i class="fa-solid fa-address-book"></i></a>
+            </li>
+            <li style="--i:0;">
+                <a href="./main.html"><i class="fa-solid fa-arrow-up"></i></a>
+            </li>
+          </div>
+      </div>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
+            const universe = document.getElementById("universe");
+            const solarsys = document.getElementById("solar-system");
+            const sun = document.querySelector('#sun');
+
+            const init = function() {
+                body.classList.add("view-3D");
+                setTimeout(() => {
+                    body.classList.remove('hide-UI');
+                    body.classList.add("set-speed");
+                }, 2000);
+            };
+
+            document.querySelectorAll("#data a").forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const ref = this.className;
+                    solarsys.className = ref;
+
+                    this.closest('#data').querySelectorAll('a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                    const iceCubeId = solarsys.className.replace('active', '').trim();
+
+                    if (iceCubeId !== 'sun') {
+                        const current = document.querySelector(`#${iceCubeId}`);
+                        const planetWrapper = current.querySelector('.ice-cube');
+                        const color3 = planetWrapper.getAttribute('data-color3');
+                        sun.style.background = `linear-gradient(${color3},#FFD700)`;
+                        sun.style.boxShadow = `0 0 70px 30px ${color3}`;
+                    } else {
+                        sun.style.background = `linear-gradient(#cf4421,#FFD700)`;
+                        sun.style.boxShadow = `0 0 70px 30px #cf4421`;
+                    }
+                    e.preventDefault();
+                });
+            });
+
+            document.getElementById("toggle-data").addEventListener('click', function(e) {
+                body.classList.toggle("data-open");
+                body.classList.toggle("data-close");
+                e.preventDefault();
+            });
+
+            document.querySelectorAll('.ice-cube').forEach((cube, index) => {
+                const faces = cube.querySelectorAll('.front, .bottom, .left, .right, .back');
+                const color0 = cube.getAttribute('data-color0');
+                const color1 = cube.getAttribute('data-color1');
+                const color2 = cube.getAttribute('data-color2');
+                const color3 = cube.getAttribute('data-color3');
+
+                faces.forEach((face) => {
+                    face.style.background = `linear-gradient(${color0},${color3})`;
+                    face.style.boxShadow = `0 0 20px 5px ${color2}, 0 0 5px 5px ${color0} inset, 0 0 5px 5px ${color1} inset`;
+                });
+            });
+
+            const toggle = document.querySelector(".toggle");
+            const menu = document.querySelector(".btn__menu");
+
+            toggle.onclick = function() {
+                console.log("hello");
+                menu.classList.toggle('active');
+            };
+
+            init();
+        });
+</script>
+</html>

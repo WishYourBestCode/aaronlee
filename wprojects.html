@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+  
+            overflow-x: hidden;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        input{
+            display: none ;
+        }
+
+        .container{
+            width:100%;
+            height:100%;
+            max-width: 600px;
+            max-height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style:preserve-3d;
+            flex-direction: column;
+            margin-bottom: 100px;
+        }
+
+        .cards{
+            position:relative;
+            height: 500px;
+            width:430px;
+            margin-bottom: 20px;
+            perspective: 1000px;
+            transform-style:preserve-3d;
+        }
+
+        .cards label{
+            position: absolute;
+            width: 430px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            cursor: pointer;
+            transition: transform 0.55s ease;
+        }
+
+        .cards .card{
+            position: relative;
+            height: 100%;
+            background-color:#323444;
+            border-radius: 10px;
+            padding: 30px 35px;
+        }
+
+        .cards ,image{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cards .image img{
+            border-radius: 5px;
+            box-shadow: 15px 15px 40px rgba(0,0,0,50%);
+            margin-top: 23px;
+            width: 100%;
+            height: 220px;
+            object-fit: fit;
+            transition: all 0.7s ease-in-out;
+        }
+
+        .cards .image img:hover{
+            transform: scale(1.05);
+        }
+
+        .cards .image .dots{
+            text-align: center; 
+        }
+
+        .cards .info{
+            display: block;
+            text-align: start;
+            
+        }
+
+        .card .info span{
+            display: block;
+        }
+
+
+        .info .name{
+            font-size: 30px;
+            color:rgb(55, 114, 202);
+            letter-spacing:8px;
+            margin-bottom: 20px;
+ 
+            padding-left:25%;
+            transition:all 0.6s ease;
+        }
+
+        .card .description{
+            font-size: 15.5px;
+            color:#eceaed;
+            letter-spacing: 3px;
+
+        }
+
+        .card .btn-details{
+            width: 100%;
+            height: 60px;
+            margin: 35px auto;
+            border-radius: 5px;
+            background-color: var(--current-color1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 25px;
+            letter-spacing: 10px;
+            font-weight: 700;
+            transition: all .7s ease;
+        }
+
+        .card .btn-details:hover{
+            transform: scale(1.09);
+        }
+
+        .arrows{
+          display: none;
+        }
+        #s1:checked~.cards #slide4,
+        #s2:checked~.cards #slide5,
+        #s3:checked~.cards #slide1,
+        #s4:checked~.cards #slide2,
+        #s5:checked~.cards #slide3{
+            box-shadow: 0 15px 30px rgba(0,0,0,45%);
+            transform: translate3d(-50%, 0, -220px);
+            --current-color1:#eceaed;
+            --currnt-color2:#404457;
+        }
+
+        #s1:checked~.cards #slide5,
+        #s2:checked~.cards #slide1,
+        #s3:checked~.cards #slide2,
+        #s4:checked~.cards #slide3,
+        #s5:checked~.cards #slide4{
+            box-shadow: 0 20px 40px rgba(0,0,0,45%);
+            transform: translate3d(-25%, 0, -120px);
+            --current-color1:#eceaed;
+            --currnt-color2:#404457;
+        }
+
+        #s1:checked~.cards #slide1,
+        #s2:checked~.cards #slide2,
+        #s3:checked~.cards #slide3,
+        #s4:checked~.cards #slide4,
+        #s5:checked~.cards #slide5{
+            box-shadow: 0 25px 50px rgba(0,0,0,50%);
+            transform: translate3d(0, 0, 0);
+            --current-color1:#fad00c;
+            --currnt-color2:#eceaed;
+        }
+
+        #s1:checked~.cards #slide2,
+        #s2:checked~.cards #slide3,
+        #s3:checked~.cards #slide4,
+        #s4:checked~.cards #slide5,
+        #s5:checked~.cards #slide1{
+            box-shadow: 0 20px 40px rgba(0,0,0,45%);
+            transform: translate3d(25%, 0, -120px);
+            --current-color1:#eceaed;
+            --currnt-color2:#404457;
+        }
+
+        #s1:checked~.cards #slide3,
+        #s2:checked~.cards #slide4,
+        #s3:checked~.cards #slide5,
+        #s4:checked~.cards #slide1,
+        #s5:checked~.cards #slide2{
+            box-shadow: 0 15px 30px rgba(0,0,0,45%);
+            transform: translate3d(50%, 0, -220px);
+            --current-color1:#eceaed;
+            --currnt-color2:#404457;
+        }
+
+
+        .menu-container{
+            position:fixed;
+            bottom:2rem;
+            right:3rem;
+        }
+
+        .btn__menu{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+        .btn__menu li{
+            position: absolute;
+            list-style: none;
+        }
+        .toggle{
+            font-size: 2em;
+            position:absolute;
+            width: 60px;
+            height: 60px;
+            background-color: rgb(192, 225, 248);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 5px 5px 0px 0px rgb(95, 114, 219);
+            transition: transform 1.25s;
+        }
+
+        .toggle i {
+            font-size: 1em;
+        }
+
+        .btn__menu.active .toggle{
+            transform: rotate(315deg);
+        }
+
+        .btn__menu li{
+            position: absolute;
+            left:0;
+            list-style: none;
+            transition: 0.5s;
+            transform-origin: 100px;
+            transition-delay: calc(0.1s * var(--i));
+            transform: rotate(0deg) translateX(80px);
+        }
+
+        .btn__menu li a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: #88c0ff;;
+            color:black;
+            border-radius: 50%;
+            transform: rotate(calc(-80deg + 35deg * var(--i)));
+            position: relative;
+        }
+
+        .btn__menu.active li {
+            transform: rotate(calc(80deg + -35deg * var(--i)));
+        }
+      
+        @media screen and (max-width:540px){
+          .container {
+              max-width: 500px;
+              max-height: 600px;
+            }
+
+          .cards {
+              position: relative;
+              height: 500px; /* Adjusted height to fit smaller screens */
+              width: 320px; /* Adjusted width to fit smaller screens */
+              margin-bottom: 10px;
+              perspective: 1000px;
+          }
+
+      
+
+          .cards .card {
+              display: block;
+              max-width: 500px; /* Adjusted card width */
+              max-height: 450px; /* Adjusted card height */
+              box-sizing: fit;
+          }
+          .cards label {
+              display: block;
+              width: 100%;
+          }
+
+          .card .label {
+              max-width: 100%;
+              background-color: rgb(121, 11, 11);
+          }
+
+          
+          .card .image{
+              width: 110%;
+            }
+
+          #s1:checked~.cards #slide4,
+            #s2:checked~.cards #slide5,
+            #s3:checked~.cards #slide1,
+            #s4:checked~.cards #slide2,
+            #s5:checked~.cards #slide3{
+                box-shadow: 0 15px 30px rgba(0,0,0,45%);
+                transform: translate3d(-40%, 0, -220px);
+                --current-color1:#eceaed;
+                --currnt-color2:#404457;
+            }
+
+            #s1:checked~.cards #slide5,
+            #s2:checked~.cards #slide1,
+            #s3:checked~.cards #slide2,
+            #s4:checked~.cards #slide3,
+            #s5:checked~.cards #slide4{
+                box-shadow: 0 20px 40px rgba(5, 4, 4, 0.45);
+                transform: translate3d(-20%, 0, -120px);
+                --current-color1:#eceaed;
+                --currnt-color2:#404457;
+            }
+
+            #s1:checked~.cards #slide1,
+            #s2:checked~.cards #slide2,
+            #s3:checked~.cards #slide3,
+            #s4:checked~.cards #slide4,
+            #s5:checked~.cards #slide5{
+                box-shadow: 0 25px 50px rgba(0,0,0,50%);
+                transform: translate3d(0, 0, 0);
+                --current-color1:#fad00c;
+                --currnt-color2:#eceaed;
+            }
+
+            #s1:checked~.cards #slide2,
+            #s2:checked~.cards #slide3,
+            #s3:checked~.cards #slide4,
+            #s4:checked~.cards #slide5,
+            #s5:checked~.cards #slide1{
+                box-shadow: 0 20px 40px rgba(0,0,0,45%);
+                transform: translate3d(20%, 0, -120px);
+                --current-color1:#eceaed;
+                --currnt-color2:#404457;
+            }
+
+            #s1:checked~.cards #slide3,
+            #s2:checked~.cards #slide4,
+            #s3:checked~.cards #slide5,
+            #s4:checked~.cards #slide1,
+            #s5:checked~.cards #slide2{
+                box-shadow: 0 15px 30px rgba(0,0,0,45%);
+                transform: translate3d(40%, 0, -220px);
+                --current-color1:#eceaed;
+                --currnt-color2:#404457;
+            }
+        }
+    
+        @media screen and (max-width:470px){
+
+            .container {
+              max-width: 440px;
+              max-height: 600px;
+            }
+
+            .cards {
+                position: relative;
+                height: 400px; /* Adjusted height to fit smaller screens */
+                width: 320px; /* Adjusted width to fit smaller screens */
+                margin-bottom: 10px;
+                perspective: 1000px;
+            }
+
+       
+
+            .cards .card {
+                display: block;
+                max-width: 300px; /* Adjusted card width */
+                max-height: 450px; /* Adjusted card height */
+                box-sizing: fit;
+            }
+            .cards label {
+                display: block;
+                width: 100%;
+            }
+
+            .card .label {
+                max-width: 100%;
+                background-color: rgb(121, 11, 11);
+            }
+
+            .cards label.active {
+                    z-index: 10; /* Bring the active card to the front */
+                    transform: scale(1.1); /* Optional: slightly enlarge the active card for emphasis */
+                }
+
+            .card .image{
+              width: 85%;
+            }
+
+            .arrows {
+                display: flex;
+                position: absolute;
+                top: 50%;
+                width: 100%;
+              
+                justify-content: space-between;
+                transform: translateY(-50%);
+            }
+
+            .arrow {
+                display: block;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                padding: 10px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            #s1:checked~.cards #slide4,
+            #s2:checked~.cards #slide5,
+            #s3:checked~.cards #slide1,
+            #s4:checked~.cards #slide2,
+            #s5:checked~.cards #slide3{
+                box-shadow: 0 15px 30px rgba(0,0,0,45%);
+                transform: translate3d(0, 0, 0);
+                --current-color1:#fad00c;
+                --currnt-color2:#404457;
+            }
+
+            #s1:checked~.cards #slide5,
+            #s2:checked~.cards #slide1,
+            #s3:checked~.cards #slide2,
+            #s4:checked~.cards #slide3,
+            #s5:checked~.cards #slide4{
+                box-shadow: 0 20px 40px rgba(5, 4, 4, 0.45);
+                transform: translate3d(0, 0, 0);
+                --current-color1:#fad00c;
+                --currnt-color2:#404457;
+            }
+
+            #s1:checked~.cards #slide1,
+            #s2:checked~.cards #slide2,
+            #s3:checked~.cards #slide3,
+            #s4:checked~.cards #slide4,
+            #s5:checked~.cards #slide5{
+                box-shadow: 0 25px 50px rgba(0,0,0,50%);
+                transform: translate3d(0, 0, 0);
+                --current-color1:#fad00c;
+                --currnt-color2:#eceaed;
+            }
+
+            #s1:checked~.cards #slide2,
+            #s2:checked~.cards #slide3,
+            #s3:checked~.cards #slide4,
+            #s4:checked~.cards #slide5,
+            #s5:checked~.cards #slide1{
+                box-shadow: 0 20px 40px rgba(0,0,0,45%);
+                transform: translate3d(0, 0, 0);
+                --current-color1:#fad00c;
+                --currnt-color2:#404457;
+            }
+
+            #s1:checked~.cards #slide3,
+            #s2:checked~.cards #slide4,
+            #s3:checked~.cards #slide5,
+            #s4:checked~.cards #slide1,
+            #s5:checked~.cards #slide2{
+                box-shadow: 0 15px 30px rgba(0,0,0,45%);
+                transform: translate3d(0, 0, 0);
+                --current-color1:#fad00c;
+                --currnt-color2:#404457;
+            }
+        }
+
+       
+  
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="radio" name="slider" id="s1" checked> 
+        <input type="radio" name="slider" id="s2">
+        <input type="radio" name="slider" id="s3">
+        <input type="radio" name="slider" id="s4">
+        <input type="radio" name="slider" id="s5">
+        <div class="cards">
+            <label for="s1" id="slide1">
+                <div class="card active">
+                    <div class="image">
+                        <img src="../images/moving.gif" alt="">
+                
+                    </div>
+                    <div class="info">
+                        <span class="name">Project1</span>
+                        <span class="description">Sorry! It will be coming soon. I am currently developing it at the moment.</span>
+                        <a href="/details" class="btn-details">Coming Soon</a>
+                    </div>
+                </div>
+            </label>
+            <label for="s2" id="slide2">
+                <div class="card">
+                    <div class="image">
+                        <img src="../images/moving.gif" alt="">
+                    
+                    </div>
+                    <div class="info">
+                        <span class="name">Project2</span>
+                        <span class="description">Sorry! It will be coming soon. I am currently developing it at the moment.</span>
+                        <a href="#" class="btn-details">Coming Soon</a>
+                    </div>
+                </div>
+            </label>
+            <label for="s3" id="slide3">
+                <div class="card">
+                    <div class="image">
+                        <img src="../images/moving.gif" alt="">
+                     
+                    </div>
+                    <div class="info">
+                        <span class="name">Project3</span>
+                        <span class="description">Sorry! It will be coming soon. I am currently developing it at the moment.</span>
+                        <a href="#" class="btn-details">Coming Soon</a>
+                    </div>
+                </div>
+            </label>
+            <label for="s4" id="slide4">
+                <div class="card">
+                    <div class="image">
+                        <img src="../images/moving.gif" alt="">
+        
+                    </div>
+                    <div class="info">
+                        <span class="name">Project4</span>
+                        <span class="description">Sorry! It will be coming soon. I am currently developing it at the moment.</span>
+                        <a href="#" class="btn-details">Coming Soon</a>
+                    </div>
+                </div>
+            </label>
+            <label for="s5" id="slide5">
+                <div class="card">
+                    <div class="image">
+                        <img src="../images/moving.gif" alt="">
+              
+                    </div>
+                    <div class="info">
+                        <span class="name">Proeject5</span>
+                        <span class="description">Sorry! It will be coming soon. I am currently developing it at the moment.</span>
+                        <a href="/details" class="btn-details">details</a>
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="arrows">
+            <div class="arrow left-arrow"><i class="fas fa-chevron-left"></i></div>
+            <div class="arrow right-arrow"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </div>
+
+    <div class="menu-container">
+        <div class="btn__menu">
+            <div class="toggle">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <li style="--i:2;">
+                <a href="./main.html"><i class="fa-solid fa-house"></i></a>
+            </li>
+            <li style="--i:1;">
+                <a href="./wportfolio.html"><i class="fa-solid fa-address-book"></i></a>
+            </li>
+            <li style="--i:0;">
+                <a href="./main.html"><i class="fa-solid fa-arrow-up"></i></a>
+            </li>
+        </div>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.cards label');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    const radios = document.querySelectorAll('input[name="slider"]');
+    let currentIndex = 0;
+
+    function updateCards() {
+        cards.forEach((card, index) => {
+            if (index === currentIndex) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+        radios[currentIndex].checked = true;
+    }
+
+    leftArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex === 0) ? cards.length - 1 : currentIndex - 1;
+        updateCards();
+    });
+
+    rightArrow.addEventListener('click', () => {
+        currentIndex = (currentIndex === cards.length - 1) ? 0 : currentIndex + 1;
+        updateCards();
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 500) {
+            radios.forEach(radio => radio.checked = false);
+            cards.forEach(card => card.classList.remove('active')); // Remove the active class on small screens
+        } else {
+            updateCards();
+        }
+    });
+ 
+    updateCards();
+
+    let toggle = document.querySelector(".toggle");
+    let menu = document.querySelector(".btn__menu");
+
+    toggle.onclick = function() {
+        menu.classList.toggle('active');
+    };
+});
+
+    </script>
+</body>
+</html>

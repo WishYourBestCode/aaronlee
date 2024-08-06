@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 30px;
+    background: #ebeef1;
+    overflow: hidden;
+    position: relative;
+
+  }
+
+  .buttons {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
