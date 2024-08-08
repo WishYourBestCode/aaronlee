@@ -90,11 +90,10 @@
       top: -33em;
       left: 50%; 
       transform: translateX(-10%); 
-      height: 300px;
+      height: 250px;
       width: 300px;
       perspective: 1000px;
       z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     
    .card{
@@ -423,25 +422,28 @@
                     this.closest('#data').querySelectorAll('a').forEach(a => a.classList.remove('active'));
                     this.classList.add('active');
                     const iceCubeId = solarsys.className.replace('active', '').trim();
-               
+                    const current = document.querySelector(`#${iceCubeId}`);
+                    
                     if (iceCubeId !== 'sun') {
               
                         const current = document.querySelector(`#${iceCubeId}`);
                         const planetWrapper = current.querySelector('.ice-cube');
                         const color3 = planetWrapper.getAttribute('data-color3');
+
+                        sun.style.background = `linear-gradient(${color3},#FFD700)`;
+                        sun.style.boxShadow = `0 0 70px 30px ${color3}`;
+
+
                         const datebox = current.querySelector('.date-box');
                         const card = current.querySelector('.card');
                         const contentbox = current.querySelector('.contentbox');
-                        
                         const projectcard = current.querySelector('.project-card');
                         projectcard.style.display = "block";
                       
                         projectcard.style.boxShadow = `0 4px 8px ${color3}`;
                         datebox.style.boxShadow = `0px 20px 60px 0px ${color3}`;
                         contentbox.style.boxShadow = `0px 20px 50px -25px ${color3}`;
-                    
-                        
-
+                
                         sun.style.background = `linear-gradient(${color3},#FFD700)`;
                         sun.style.boxShadow = `0 0 70px 30px ${color3}`;
                     } else {
