@@ -425,14 +425,17 @@
                     const iceCubeId = solarsys.className.replace('active', '').trim();
                
                     if (iceCubeId !== 'sun') {
+              
                         const current = document.querySelector(`#${iceCubeId}`);
+                        const planetWrapper = current.querySelector('.ice-cube');
+                        const color3 = planetWrapper.getAttribute('data-color3');
                         const datebox = current.querySelector('.date-box');
                         const card = current.querySelector('.card');
                         const contentbox = current.querySelector('.contentbox');
                         
                         const projectcard = current.querySelector('.project-card');
                         projectcard.style.display = "block";
-                        const color3 = planetWrapper.getAttribute('data-color3');
+                      
                         projectcard.style.boxShadow = `0 4px 8px ${color3}`;
                         datebox.style.boxShadow = `0px 20px 60px 0px ${color3}`;
                         contentbox.style.boxShadow = `0px 20px 50px -25px ${color3}`;
