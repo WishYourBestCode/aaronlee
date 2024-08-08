@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-    <link rel="stylesheet" href="./css/space copy.css">
+    <link rel="stylesheet" href="./css/dprojects.css">
 
 </head>
+<!-- navbar menu button -->
 <style>
-   .menu-container{
+    .menu-container{
         position:fixed;
         bottom:0.5rem;
         right:-3rem;
@@ -79,8 +80,121 @@
     .btn__menu.active li {
         transform: rotate(calc(80deg + -35deg * var(--i)));
     }
-</style>
 
+</style>
+<!-- project card -->
+<style>
+     .project-card{
+      position: fixed; 
+      display: none;
+      top: -33em;
+      left: 50%; 
+      transform: translateX(-10%); 
+      height: 300px;
+      width: 300px;
+      perspective: 1000px;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+   .card{
+        padding-top: 100px;
+        transform-style: preserve-3d;
+        background-image:url("https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+        width:100%;
+        transition: all 0.5s ease-in-out;
+        border-radius: 10px;
+    }
+    .card:hover{
+        background-position: 80% 20%;
+        transform: rotate3d(0.5, 1, 0, 30deg);
+    }
+
+    .content-box{
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,0.811);
+        border-radius: 0px 0px 10px 10px;
+        box-shadow: rgba(0,155,255,0.925) 0px 20px 50px -25px;
+        transition: all 0.5s ease-in-out;
+        padding: 10px 10px;
+        transform: preserve-3d;
+    }
+
+    .card-title{
+        color:white;
+        font-size:20px;
+        font-weight: 900;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .card-title:hover{
+        transform: translate3d(0px, 0px, 50px);
+    }
+
+    .card-content{
+        padding: 15px;
+        font-size: 17px;
+        color:rgb(185,185,185);
+        font-weight: 500;
+        transition: all 0.5s ease-in-out;
+        transform: translate3d(0px, 0px, 20px)
+    }
+
+    .card-content:hover{
+        transform: translate3d(0px, 0px, 50px)
+    }
+
+    .see-more{
+        width:100%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        font-weight: 900;
+        font-size:15px;
+        border-radius: 1px solid rgb(0,136,255);
+        background-color: rgb(0,136,255);;
+        text-transform: uppercase;
+        color:rgb(0, 0, 0);
+        padding:10px 20px;
+        transition: all 0.5s ease-in-out;
+        transform: translate3d(0px, 0px, 20px);
+    }
+
+    .see-more:hover{
+        transform: translate3d(0px, 0px, 50px);
+    }
+
+    .date-box{
+        position: absolute;
+        top:75px;
+        left:25px;
+        width:60px;
+        background-color: rgb(0,0,0);
+        border-radius: 10px;
+        padding:10px;
+        box-shadow: rgb(0,102,255) 0px 20px 60px 0px;
+        transform: translate3d(0px, 0px, 50px);
+    }
+
+    .date-box span{
+        display: block;
+        text-align:center;
+
+    }
+
+    .date-box .month{
+        color:white;
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    .date-box .date{
+        font-size: 20px;
+        font-weight: 900;
+        color:rgb(0,136,255);
+    }
+</style>
 
 <body class="opening hide-UI data-close" >  
       <div id="navbar">
@@ -115,6 +229,25 @@
                   <dt>Project1</dt>
                   <dd><span></span></dd>
                 </dl>
+                <div class="project-card">
+                  <div class="card">
+                      <div class="content-box">
+                          <h1 class="card-title">
+                              Project1
+                          </h1>
+                          <p class="card-content">
+                            I will work on this project soon in the future. 
+                            Please give me a time!
+                          </p>
+                          <span class="see-more">
+                              Link
+                          </span>
+                      </div>
+                      <div class="date-box">
+                            <span class="date">1</span>
+                        </div>
+                    </div>
+              </div>
               </div>
             </div>
   
@@ -136,7 +269,28 @@
                   <dt>Project2</dt>
                   <dd><span></span></dd>
                 </dl>
+                <div class="project-card">
+                  <div class="card">
+                      <div class="content-box">
+                          <h1 class="card-title">
+                              Project2
+                          </h1>
+                          <p class="card-content">
+                            I will work on this project soon in the future. 
+                            Please give me a time!
+                          </p>
+                          <span class="see-more">
+                              Link
+                          </span>
+                      </div>
+                      <div class="date-box">
+                        <span class="date">2</span>
+                           
+                        </div>
+                    </div>
               </div>
+              </div>
+              
             </div>
             <div id="icecube3" class="orbit">
               <div class="pos">
@@ -156,6 +310,25 @@
                   <dt>Project3</dt>
                   <dd><span></span></dd>
                 </dl>
+                <div class="project-card">
+                  <div class="card">
+                      <div class="content-box">
+                          <h1 class="card-title">
+                            Project3
+                          </h1>
+                          <p class="card-content">
+                            I will work on this project soon in the future. 
+                            Please give me a time!
+                        </p>
+                        <span class="see-more">
+                            Link
+                        </span>
+                      </div>
+                      <div class="date-box">
+                        <span class="date">3</span>
+                      </div>
+                    </div>
+              </div>
               </div>
             </div>
             <div id="icecube4" class="orbit">
@@ -176,6 +349,25 @@
                   <dt>Project4</dt>
                   <dd><span></span></dd>
                 </dl>
+                <div class="project-card">
+                  <div class="card">
+                      <div class="content-box">
+                          <h1 class="card-title">
+                              Project4
+                          </h1>
+                          <p class="card-content">
+                            I will work on this project soon in the future. 
+                            Please give me a time!
+                        </p>
+                          <span class="see-more">
+                              Link
+                          </span>
+                      </div>
+                      <div class="date-box">
+                        <span class="date">4</span>
+                      </div>
+                    </div>
+              </div>
               </div>
             </div>
             <div id="sun"  
@@ -224,22 +416,36 @@
 
             document.querySelectorAll("#data a").forEach(link => {
                 link.addEventListener('click', function(e) {
+                    document.querySelectorAll('.project-card').forEach(card => card.style.display = 'none');
                     const ref = this.className;
                     solarsys.className = ref;
 
                     this.closest('#data').querySelectorAll('a').forEach(a => a.classList.remove('active'));
                     this.classList.add('active');
                     const iceCubeId = solarsys.className.replace('active', '').trim();
-
+               
                     if (iceCubeId !== 'sun') {
                         const current = document.querySelector(`#${iceCubeId}`);
-                        const planetWrapper = current.querySelector('.ice-cube');
+                        const datebox = current.querySelector('.date-box');
+                        const card = current.querySelector('.card');
+                        const contentbox = current.querySelector('.contentbox');
+                        
+                        const projectcard = current.querySelector('.project-card');
+                        projectcard.style.display = "block";
                         const color3 = planetWrapper.getAttribute('data-color3');
+                        projectcard.style.boxShadow = `0 4px 8px ${color3}`;
+                        datebox.style.boxShadow = `0px 20px 60px 0px ${color3}`;
+                        contentbox.style.boxShadow = `0px 20px 50px -25px ${color3}`;
+                    
+                        
+
                         sun.style.background = `linear-gradient(${color3},#FFD700)`;
                         sun.style.boxShadow = `0 0 70px 30px ${color3}`;
                     } else {
                         sun.style.background = `linear-gradient(#cf4421,#FFD700)`;
                         sun.style.boxShadow = `0 0 70px 30px #cf4421`;
+                        const projectcard = document.querySelector('.project-card.sun-card');
+                        projectcard.style.display = "block";
                     }
                     e.preventDefault();
                 });

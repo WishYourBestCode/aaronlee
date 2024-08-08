@@ -94,9 +94,11 @@ body {
   left: 50%;
   border-radius: 50%; }
 
+.project-card{
+  display: none;
+}
 
-
-/* --------------------------------------------------------------------------- planets index */
+/* --------------------------------------------------------------------------- icecube index */
 #icecube1 {
   z-index: 10; }
 
@@ -213,7 +215,7 @@ opacity: 0.8;
 
 
 
-/* --------------------------------------------------------------------------- planets sizes */
+/* --------------------------------------------------------------------------- icecube sizes */
 /* --------------------------------------------------------------------------- stretched sizes */
 .scale-stretched #sun {
   font-size: 20em; }
@@ -236,7 +238,7 @@ opacity: 0.8;
 
 
 
-/* --------------------------------------------------------------------------- planet size scale sizes */
+/* --------------------------------------------------------------------------- icecube size scale sizes */
 .scale-s #sun {
   font-size: 417.3048em; }
 
@@ -291,22 +293,22 @@ opacity: 0.8;
 /* --------------------------------------------------------------------------- text infos data */
 /* --------------------------------------------------------------------------- speed */
 .set-speed dl.infos dd span:after {
-  content: 'Orbit Velocity'; }
+  content: 'Project Status'; }
 
 .set-speed #sun dl.infos dd:after {
-  content: '0 km/h'; }
+  content: 'Coming Soon!'; }
 
 .set-speed #icecube1 dl.infos dd:after {
-  content: '170,503 km/h'; }
+  content: 'Coming Soon!'; }
 
 .set-speed #icecube2  dl.infos dd:after {
-  content: '126,074 km/h'; }
+  content: 'Coming Soon!'; }
 
 .set-speed #icecube3 dl.infos dd:after {
-  content: '107,218 km/h'; }
+  content: 'Coming Soon!'; }
 
 .set-speed #icecube4 dl.infos dd:after {
-  content: '86,677 km/h';
+  content: 'Coming Soon!';
 }
 
 
@@ -314,8 +316,8 @@ opacity: 0.8;
 
 
 
-/* --------------------------------------------------------------------------- planets starting position and lighting effect */
-/* --------------------------------------------------------------------------- mercury ; pos: Top */
+/* --------------------------------------------------------------------------- icecube starting position and lighting effect */
+/* --------------------------------------------------------------------------- icecube1 ; pos: Top */
 #icecube1 .pos {
   left: 50%;
   top: -1%; }
@@ -326,7 +328,7 @@ opacity: 0.8;
   box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
   /* RIGHT */ }
 
-/* --------------------------------------------------------------------------- venus ; pos: Left */
+/* --------------------------------------------------------------------------- icecube2 ; pos: Left */
 #icecube2 .pos {
   left: 0;
   top: 50%; }
@@ -338,7 +340,7 @@ opacity: 0.8;
   box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
   /* RIGHT */ }
 
-/* --------------------------------------------------------------------------- earth ; pos: Right */
+/* --------------------------------------------------------------------------- icecube3 ; pos: Right */
 #icecube3 .pos {
   left: 100%;
   top: 50%; }
@@ -356,7 +358,7 @@ opacity: 0.8;
 #icecube3 .orbit .pos {
   left: 100%;
   top: 50%; }
-/* --------------------------------------------------------------------------- mars ; pos: Bottom */
+/* --------------------------------------------------------------------------- icecube4 ; pos: Bottom */
 #icecube4 .pos {
   left: 50%;
   top: 100%; }
@@ -372,12 +374,6 @@ opacity: 0.8;
 
 
 
-
-/* --------------------------------------------------------------------------- DEBUG 
-.pos, 
-.planet, 
-.orbit,
-.ring { animation-duration: 20s!important; }
 
 /* */
 /* --------------------------------------------------------------------------- navigation styles */
