@@ -162,6 +162,11 @@
 
     .see-more:hover{
         transform: translate3d(0px, 0px, 50px);
+        cursor: pointer;
+    }
+
+    .see-more a{
+      text-decoration: none;
     }
 
     .date-box{
@@ -201,10 +206,10 @@
       </div>
       <div id="data">
         <a class="sun"  title="sun" href="#sunspeed">Sun</a>
-        <a class="icecube1" title="icecube1" href="#icecube1speed">Project1</a>
-        <a class="icecube2" title="icecube2" href="#icecube2speed">Project2</a>
-        <a class="icecube3 active" title="icecube3  " href="#icecube3speed">Project3</a>
-        <a class="icecube4" title="icecube4" href="#icecube4speed">Project4</a>
+        <a class="icecube1" title="icecube1" href="#icecube1speed">MoonWall</a>
+        <a class="icecube2" title="icecube2" href="#icecube2speed">Project1</a>
+        <a class="icecube3 active" title="icecube3  " href="#icecube3speed">Project2</a>
+        <a class="icecube4" title="icecube4" href="#icecube4speed">Project3</a>
       </div>
 
       <div id="universe" class="scale-stretched">
@@ -225,21 +230,21 @@
                     <div class="bottom"></div>
                   </div>
                 <dl class="infos">
-                  <dt>Project1</dt>
+                  <dt>MoonWall</dt>
                   <dd><span></span></dd>
                 </dl>
                 <div class="project-card">
                   <div class="card">
                       <div class="content-box">
                           <h1 class="card-title">
-                              Project1
+                            MoonWall
                           </h1>
                           <p class="card-content">
-                            I will work on this project soon in the future. 
-                            Please give me a time!
+                            Developed a React front end with a C++ bridge server that communicates with a firewall server on Linux. 
+                            Using AI, the system generates firewall rules based on user input.
                           </p>
                           <span class="see-more">
-                              Link
+                            <a href="https://github.com/WishYourBestCode/MoonWall" class="btn-details">Check Code</a>
                           </span>
                       </div>
                       <div class="date-box">
@@ -265,14 +270,14 @@
                   <div class="bottom"></div>
                 </div>
                 <dl class="infos">
-                  <dt>Project2</dt>
+                  <dt>Project1</dt>
                   <dd><span></span></dd>
                 </dl>
                 <div class="project-card">
                   <div class="card">
                       <div class="content-box">
                           <h1 class="card-title">
-                              Project2
+                              Project1
                           </h1>
                           <p class="card-content">
                             I will work on this project soon in the future. 
@@ -306,14 +311,14 @@
                   <div class="bottom"></div>
                 </div>
                 <dl class="infos">
-                  <dt>Project3</dt>
+                  <dt>Project2</dt>
                   <dd><span></span></dd>
                 </dl>
                 <div class="project-card">
                   <div class="card">
                       <div class="content-box">
                           <h1 class="card-title">
-                            Project3
+                            Project2
                           </h1>
                           <p class="card-content">
                             I will work on this project soon in the future. 
@@ -345,14 +350,14 @@
                   <div class="bottom"></div>
                 </div>
                 <dl class="infos">
-                  <dt>Project4</dt>
+                  <dt>Project3</dt>
                   <dd><span></span></dd>
                 </dl>
                 <div class="project-card">
                   <div class="card">
                       <div class="content-box">
                           <h1 class="card-title">
-                              Project4
+                              Project3
                           </h1>
                           <p class="card-content">
                             I will work on this project soon in the future. 
@@ -412,7 +417,7 @@
                     body.classList.add("set-speed");
                 }, 2000);
             };
-
+           
             document.querySelectorAll("#data a").forEach(link => {
                 link.addEventListener('click', function(e) {
                     document.querySelectorAll('.project-card').forEach(card => card.style.display = 'none');

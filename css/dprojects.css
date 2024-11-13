@@ -88,6 +88,9 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: linear; }
 
+  .paused-motion {
+    animation-play-state: paused; /* This pauses the animation */
+  }
 .ring {
   position: absolute;
   top: 50%;
@@ -158,23 +161,23 @@ body {
 
 
 .ice-cube{
-width: 25px;
-height: 25px;
-background: linear-gradient( rgb(31, 190, 190), red);
-top:250px;
-left:250px;
-transform-style:preserve-3d;
-animation: rotateCube 15s linear infinite;
-transform: rotateX(-30deg) rotateY(45deg)
-/* transform: rotateX(-30deg) rotateY(45deg); */
+  width: 25px;
+  height: 25px;
+  background: linear-gradient( rgb(31, 190, 190), red);
+  top:250px;
+  left:250px;
+  transform-style:preserve-3d;
+  animation: rotateCube 15s linear infinite;
+  transform: rotateX(-30deg) rotateY(45deg);
 }
 .ice-cube div {
-position: absolute;
-width: 25px;
-height: 25px;
-border: 1px solid #d7f0f3;
-opacity: 0.8;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #d7f0f3;
+  opacity: 0.8;
 }
+
 .front { transform: translateZ(12.5px);  }
 .back { transform: translateZ(-12.5px); }
 .right { transform: rotateY(-90deg) translateZ(12.5px);  }
@@ -183,8 +186,8 @@ opacity: 0.8;
 .bottom { transform: rotateX(90deg) translateZ(12.5px);  }
 
 @keyframes rotateCube {
-0% { transform: rotateY(0deg); }
-100% { transform: rotateY(360deg); }
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
 }
 
 
@@ -192,7 +195,7 @@ opacity: 0.8;
 #icecube1 .pos,
 #icecube1 .planet,
 #icecube1.orbit {
-  animation-duration: 2.89016s; }
+  animation-duration: 6.89016s; }
 
 #icecube2 .pos,
 #icecube2 .planet,
@@ -299,7 +302,7 @@ opacity: 0.8;
   content: 'Coming Soon!'; }
 
 .set-speed #icecube1 dl.infos dd:after {
-  content: 'Coming Soon!'; }
+  content: 'MoonWall'; }
 
 .set-speed #icecube2  dl.infos dd:after {
   content: 'Coming Soon!'; }
